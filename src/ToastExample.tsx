@@ -4,11 +4,11 @@ import { useEffect } from 'react';
 interface Props{
   title?: string,
   description?: string,
-  status: "info" | "warning" | "success" | "error",
+  status?: "info" | "warning" | "success" | "error",
 }
 
  export const ToastExample = (props: Props) => {
-   const {title, description, status} = props;
+   const {title, description, status = "success"} = props;
   const toast = useToast()
 
   useEffect(() => {

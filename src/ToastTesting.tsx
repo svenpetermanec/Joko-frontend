@@ -10,7 +10,7 @@ export const ToastTesting = (props: Props) => {
     <Box>
       <Button onClick ={() => setToast(true)} />
         {toast && (
-        <ToastExample status="success"/>
+        <ToastExample status="error"/>
       )}
     </Box>
     );
