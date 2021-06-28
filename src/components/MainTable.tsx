@@ -1,11 +1,11 @@
 import { useTable } from 'react-table'
-import React from 'react'
+import { useMemo } from 'react'
 import { Table, Tbody, Thead, Tr, Th, Td} from '@chakra-ui/react';
 
 interface Props{}
 
 export const MainTable = (props: Props) => {
-const data = React.useMemo(
+const data = useMemo(
     () => [
     {
         col1: 'Hello',
@@ -31,7 +31,7 @@ const data = React.useMemo(
     []
 )
 
-const columns = React.useMemo(
+const columns = useMemo(
     () => [
     {
         Header: 'Column 1',

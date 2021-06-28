@@ -1,4 +1,4 @@
-import { getPrice } from './api/fetch.api'
+import { getPrice } from './../api/fetch.api'
 import { Button } from '@chakra-ui/react'
 
 interface Props{}

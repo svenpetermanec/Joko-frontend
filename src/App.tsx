@@ -1,6 +1,6 @@
 //import { ToastTesting } from './ToastTesting'
-import { MainTable } from './MainTable'
-import { Test } from './Test'
+import { MainTable } from './components/MainTable'
+import { Test } from './components/Test'
 
 interface Props {}
 
