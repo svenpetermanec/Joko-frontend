@@ -4,7 +4,7 @@ import { Table, Tbody, Thead, Tr, Th, Td} from '@chakra-ui/react';
 
 interface Props{}
 
-export const Nes =(props: Props) => {
+export const MainTable = (props: Props) => {
 const data = React.useMemo(
     () => [
     {
@@ -59,6 +59,7 @@ const {
 } = useTable({ columns, data })
 
 return (
+    <div>
     <Table {...getTableProps()}>
     <Thead bgColor="#363945">
         {headerGroups.map(headerGroup => (
@@ -92,5 +93,6 @@ return (
         })}
     </Tbody>
     </Table>
+    </div>
 )
 }

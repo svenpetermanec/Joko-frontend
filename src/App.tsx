@@ -1,11 +1,15 @@
 //import { ToastTesting } from './ToastTesting'
-import { Nes } from './Nes'
+import { MainTable } from './MainTable'
+import { Test } from './Test'
 
 interface Props {}
 
 export const App = (props: Props) => {
   return (
     //<ToastTesting />
-    <Nes/>
+    <>
+    <MainTable/>
+    <Test/>
+    </>
   );
 }
