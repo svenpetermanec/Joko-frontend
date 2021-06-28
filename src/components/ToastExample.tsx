@@ -2,8 +2,8 @@ import { useToast } from "@chakra-ui/react"
 import { useEffect } from 'react';
 
 interface Props{
-  title?: string,
-  description?: string,
+  title: string,
+  description: string,
   status?: "info" | "warning" | "success" | "error",
 }
 
