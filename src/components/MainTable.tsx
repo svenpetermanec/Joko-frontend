@@ -2,49 +2,57 @@ import { useTable } from 'react-table'
 import { useMemo } from 'react'
 import { Table, Tbody, Thead, Tr, Th, Td} from '@chakra-ui/react';
 
-interface Props{}
+interface Props{
+    data: Array<any>,
+}
 
 export const MainTable = (props: Props) => {
-const data = useMemo(
-    () => [
-    {
-        col1: 'Hello',
-        col2: 'World',
-        col3: 'test' ,
-    },
-    {
-        col1: 'react-table',
-        col2: 'rocks',
-        col3: 'test' ,
-    },
-    {
-        col1: 'whatever',
-        col2: 'you want',
-        col3: 'test' ,
-    },
-    {
-        col1: 'react-table',
-        col2: 'rocks',
-        col3: 'test' ,
-    },
-    ],
-    []
-)
+
+const { data } = props;
+
+console.log(data);
+
+// const data = useMemo(
+//     () => [
+//     {
+//         col1: 'Hello',
+//         col2: 'World',
+//         col3: 'test' ,
+//     },
+//     {
+//         col1: 'react-table',
+//         col2: 'rocks',
+//         col3: 'test' ,
+//     },
+//     {
+//         col1: 'whatever',
+//         col2: 'you want',
+//         col3: 'test' ,
+//     },
+//     {
+//         col1: 'react-table',
+//         col2: 'rocks',
+//         col3: 'test' ,
+//     },
+//     ],
+//     []
+// )
+
 
 const columns = useMemo(
     () => [
     {
-        Header: 'Column 1',
-        accessor: 'col1', // accessor is the "key" in the data
+        Header: 'Price',
+        accessor: 'price', // accessor is the "key" in the data
     },
-    {
-        Header: 'Column 2',
-        accessor: 'col2',
-    },
-    {
-        Header: 'Column 3',
-        accessor: 'col3', // accessor is the "key" in the data
-    },
+    // {
+    //     Header: 'Column 2',
+    //     accessor: 'col2',
+    // },
+    // {
+    //     Header: 'Column 3',
+    //     accessor: 'col3', // accessor is the "key" in the data
+    // },
     ],
     []
 )

@@ -1,15 +1,22 @@
 import { getPrice } from './../api/fetch.api'
-import { Button } from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Symbol } from './../types'
+import { MainTable } from './MainTable'
 
 interface Props{}
 
 export const Test = (props: Props) => {
 
-    async function handle() {
-        const { data } = await getPrice('TSLA');
-        console.log(data.price);
-      }
+    const [symbols, setSymbols] = useState<Symbol[]>([]);
+
+    useEffect(() =>{
+        //need batcing to pass array
+        getPrice('TSLA', 'SBUX').then((res) => setSymbols(res.data.price)).then(()=>console.log(symbols));
+        // eslint-disable-next-line
+    }, [getPrice]);
+
     return(
-        <Button onClick={handle}></Button>
+        <MainTable data = {symbols}></MainTable>
+        //<span></span>
     )
 }
