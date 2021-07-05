@@ -9,39 +9,8 @@ interface Props{
 export const MainTable = (props: Props) => {
 
 const { ata } = props;
-console.log(typeof(ata));
-console.log(ata);
  
-const data = useMemo(() => [ata], []);
-console.log(typeof(data));
-console.log(data);
-
-// const data = useMemo(
-//     () => [
-//     {
-//         price: 'test',
-//         col2: 'World',
-//         col3: 'test' ,
-//     },
-//     {
-//         col1: 'react-table',
-//         col2: 'rocks',
-//         col3: 'test' ,
-//     },
-//     {
-//         col1: 'whatever',
-//         col2: 'you want',
-//         col3: 'test' ,
-//     },
-//     {
-//         col1: 'react-table',
-//         col2: 'rocks',
-//         col3: 'test' ,
-//     },
-//     ],
-//     []
-// )
-
+const data = useMemo(() => [ata], [ata]);
 
 const columns = useMemo(
     () => [
@@ -72,16 +41,6 @@ const columns = useMemo(
     ],
     []
 );
-
-// const columns = useMemo(
-//     () => [
-//     {
-//         Header: 'Price',
-//         accessor: 0, // accessor is the "key" in the data
-//     },
-//     ],
-//     []
-// );
 
 const {
     getTableProps,

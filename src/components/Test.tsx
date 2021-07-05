@@ -9,7 +9,7 @@ interface Props{}
 export const Test = (props: Props) => {
 
     //const [symbols, setSymbols] = useState<Symbol[]>([]);
-    const [symbols, setSymbols] = useState([]);
+    const [symbols, setSymbols] = useState<Symbol[]>([]);
     const [ isLoading, setIsLoading ] = useState(false);
 
     async function fetchData(ticker: string){
@@ -27,11 +27,11 @@ export const Test = (props: Props) => {
 
     return(
         <span>
-            {!isLoading && symbols.length != 0 ? 
+            {!isLoading && symbols.length !== 0 ? 
             <MainTable ata = {symbols}></MainTable>
             //<p></p>
             : //<p></p>
-            <Loader position="relative"/>
+            <Loader/>
         }
         </span>
     )

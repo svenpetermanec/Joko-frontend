@@ -1,15 +1,9 @@
-import React from 'react';
-
 import { Center, Spinner } from '@chakra-ui/react';
 
 interface Props {
-  position: string;
-  showBackdrop?: boolean;
 }
 
 export const Loader = (props: Props) => {
-  const { position, showBackdrop } = props;
-
   return (
     <Center
       w="100%"
