@@ -1,6 +1,5 @@
 import { getPrice } from '../api'
 import { useState, useEffect } from 'react'
-import { Symbol } from '../types'
 import { MainTable } from './MainTable'
 import { TableButtonHolder } from './TableButtonHolder'
 import { TickerModal } from './TickerModal'
@@ -9,7 +8,7 @@ import { Loader } from './Loader'
 interface Props{}
 
 export const MainPage = (props: Props) => {
-    const [ symbols, setSymbols ] = useState<Symbol[]>([]);
+    const [ symbols, setSymbols ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(false);
     const [ modalOpener, setModalOpener ] = useState(false);
 
