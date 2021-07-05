@@ -15,7 +15,7 @@ export const TableButtonHolder = (props: Props) => {
             border={'1px solid rgba(0, 0, 0, 0.1)'}
             borderRadius={'5px'}
             >
-            <Button onClick = {() => modalOpener(true)}>Test</Button>
+            <Button onClick = {() => modalOpener(true)}>Add new</Button>
         </Box>
     );
     };

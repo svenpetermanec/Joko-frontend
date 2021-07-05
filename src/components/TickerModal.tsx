@@ -1,4 +1,14 @@
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, ModalCloseButton, Button } from '@chakra-ui/react'
+//import { useForm } from 'react-hook-form'
+import {
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Input,
+    ModalCloseButton,
+    Button
+} from '@chakra-ui/react'
 
 interface Props {
     ModalOpen: any;
@@ -22,7 +32,9 @@ export const TickerModal = (props: Props) => {
                 <ModalCloseButton/>
                 <form onSubmit={handleSubmit}>
                 <ModalBody>
-                    <Input placeholder={'Ticker'}></Input>
+                    <Input my={3} placeholder={'Ticker'}></Input>
+                    <Input my={3} placeholder={'Quantity'}></Input>
+                    <Input my={3} placeholder={'Buy price'}></Input>
                 </ModalBody>
 
                 <ModalFooter>

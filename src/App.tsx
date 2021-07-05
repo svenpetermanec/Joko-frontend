@@ -1,13 +1,10 @@
 //import { ToastTesting } from './ToastTesting'
-import { Test } from './components/Test'
+import { MainPage } from './components/MainPage'
 
 interface Props {}
 
 export const App = (props: Props) => {
   return (
-    //<ToastTesting />
-    <>
-    <Test/>
-    </>
-  );
+    <MainPage/>
+    );
 }
