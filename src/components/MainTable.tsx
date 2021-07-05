@@ -15,28 +15,28 @@ const data = useMemo(() => [ata], [ata]);
 const columns = useMemo(
     () => [
     {
-        Header: 'Price',
-        accessor: "c", // accessor is the "key" in the data
+        Header: 'Current',
+        accessor: "c",
     },
     {
-        Header: 'Price',
-        accessor: "h", // accessor is the "key" in the data
+        Header: 'High',
+        accessor: "h",
     },
     {
-        Header: 'Price',
-        accessor: "l", // accessor is the "key" in the data
+        Header: 'Low',
+        accessor: "l",
     },
     {
-        Header: 'Price',
-        accessor: "o", // accessor is the "key" in the data
+        Header: 'Open',
+        accessor: "o",
     },
     {
-        Header: 'Price',
-        accessor: "pc", // accessor is the "key" in the data
+        Header: 'Previous close',
+        accessor: "pc",
     },
     {
-        Header: 'Price',
-        accessor: "t", // accessor is the "key" in the data
+        Header: 'Time',
+        accessor: "t",
     },
     ],
     []

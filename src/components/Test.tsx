@@ -1,16 +1,17 @@
-import { getPrice } from './../api/fetch.api'
+import { getPrice } from './../api'
 import { useState, useEffect } from 'react'
 import { Symbol } from './../types'
 import { MainTable } from './MainTable'
+import { TableButtonHolder } from './TableButtonHolder'
+import { TickerModal } from './TickerModal'
 import { Loader } from './Loader'
 
 interface Props{}
 
 export const Test = (props: Props) => {
-
-    //const [symbols, setSymbols] = useState<Symbol[]>([]);
-    const [symbols, setSymbols] = useState<Symbol[]>([]);
+    const [ symbols, setSymbols ] = useState<Symbol[]>([]);
     const [ isLoading, setIsLoading ] = useState(false);
+    const [ modalOpener, setModalOpener ] = useState(false);
 
     async function fetchData(ticker: string){
         setIsLoading(true);
@@ -19,20 +20,23 @@ export const Test = (props: Props) => {
     }
 
     useEffect(() =>{
-        //need batcing to pass array
-        //getPrice('SBUX').then((res) => (setSymbols(res.data), console.log(symbols)));
         fetchData('TSLA');
         // eslint-disable-next-line
     }, []);
 
     return(
-        <span>
+        <>
+            <TableButtonHolder modalOpener={setModalOpener}/>
             {!isLoading && symbols.length !== 0 ? 
-            <MainTable ata = {symbols}></MainTable>
-            //<p></p>
-            : //<p></p>
-            <Loader/>
-        }
-        </span>
+                <MainTable ata = {symbols}></MainTable>
+                : <Loader/>
+            }
+            {modalOpener && (
+                <TickerModal
+                ModalOpen={modalOpener}
+                setModalOpen={setModalOpener}
+                ></TickerModal>
+            )}
+        </>
     )
 }
