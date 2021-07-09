@@ -1,20 +1,21 @@
-import { getPrice } from '../api'
-import { useState, useEffect } from 'react'
-import { MainTable } from './MainTable'
-import { TableButtonHolder } from './TableButtonHolder'
-import { TickerModal } from './TickerModal'
-import { Loader } from './Loader'
+import { getPrice } from '../api';
+import { useState, useEffect } from 'react';
+import { MainTable, TableButtonHolder, TickerModal, Loader } from '.';
+import { Symbol } from './../types'
 
 interface Props{}
 
 export const MainPage = (props: Props) => {
-    const [ symbols, setSymbols ] = useState([]);
-    const [ isLoading, setIsLoading ] = useState(false);
-    const [ modalOpener, setModalOpener ] = useState(false);
+    const [symbols, setSymbols] = useState<Symbol[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [modalOpener, setModalOpener] = useState<boolean>(false);
 
     async function fetchData(ticker: string){
         setIsLoading(true);
-        await getPrice(ticker).then((res) => (setSymbols(res.data)));
+        await getPrice(ticker).
+        then((result) =>
+            setSymbols(result.data)
+        );
         setIsLoading(false);
     }
 
@@ -26,16 +27,18 @@ export const MainPage = (props: Props) => {
     return(
         <>
             <TableButtonHolder modalOpener={setModalOpener}/>
+
             {!isLoading && symbols.length !== 0 ? 
-                <MainTable ata = {symbols}></MainTable>
+                <MainTable symbols = {symbols}/>
                 : <Loader/>
             }
+            
             {modalOpener && (
                 <TickerModal
-                ModalOpen={modalOpener}
-                setModalOpen={setModalOpener}
-                ></TickerModal>
+                    modalOpen={modalOpener}
+                    setModalOpen={setModalOpener}
+                />
             )}
         </>
-    )
-}
+    );
+};

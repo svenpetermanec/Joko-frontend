@@ -1,17 +1,19 @@
-import { Box, Button } from '@chakra-ui/react'
-import { ToastExample } from './ToastExample'
-import { useState } from 'react'
+import { Box, Button } from '@chakra-ui/react';
+//import { ToastExample } from '.'
+import { useState } from 'react';
 
 interface Props {}
 
 export const ToastTesting = (props: Props) => {
-    const [toast, setToast] = useState(false);
-    return(
+  const [toast, setToast] = useState<boolean>(false);
+
+  return(
     <Box>
-      <Button onClick ={() => setToast(true)} />
+      <Button onClick ={() => setToast(true)}/>
         {toast && (
-        <ToastExample status="error"/>
+        //<ToastExample status='error'/><
+        <span/>
       )}
     </Box>
-    );
-}
+  );
+};

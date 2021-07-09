@@ -1,4 +1,4 @@
-//import { useForm } from 'react-hook-form'
+//TODO: switch to react-hook-form
 import {
     Modal,
     ModalContent,
@@ -8,40 +8,54 @@ import {
     Input,
     ModalCloseButton,
     Button
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 interface Props {
-    ModalOpen: any;
-    setModalOpen: any;
+    modalOpen: boolean;
+    setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const handleSubmit = () => {
-    console.log("test");
+    console.log('test');
 }
 
 export const TickerModal = (props: Props) => {
-    const { ModalOpen, setModalOpen } = props;
+    const { modalOpen, setModalOpen } = props;
+
     return (
         <Modal
-        isOpen={ ModalOpen }
-        onClose={() => setModalOpen(false)}
+            isOpen={ modalOpen }
+            onClose={() => setModalOpen(false)}
         >
             <ModalContent>
                 <ModalHeader>Add new</ModalHeader>
 
                 <ModalCloseButton/>
+
                 <form onSubmit={handleSubmit}>
+
                 <ModalBody>
-                    <Input my={3} placeholder={'Ticker'}></Input>
-                    <Input my={3} placeholder={'Quantity'}></Input>
-                    <Input my={3} placeholder={'Buy price'}></Input>
+                    <Input
+                        my={3}
+                        placeholder={'Ticker'}
+                    />
+
+                    <Input
+                        my={3}
+                        placeholder={'Quantity'}
+                    />
+
+                    <Input
+                        my={3}
+                        placeholder={'Buy price'}
+                    />
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button type="submit">Dodaj</Button>
+                    <Button type='submit'>Add</Button>
                 </ModalFooter>
+                
                 </form>
-
             </ModalContent>
         </Modal>
     );
