@@ -12,8 +12,8 @@ export const MainPage = (props: Props) => {
 
     async function fetchData(ticker: string){
         setIsLoading(true);
-        await getPrice(ticker).
-        then((result) =>
+        await getPrice(ticker)
+        .then((result) =>
             setSymbols(result.data)
         );
         setIsLoading(false);
@@ -21,7 +21,6 @@ export const MainPage = (props: Props) => {
 
     useEffect(() =>{
         fetchData('TSLA');
-        // eslint-disable-next-line
     }, []);
 
     return(

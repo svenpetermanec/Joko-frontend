@@ -1,4 +1,4 @@
-import { ToastOptions, useToast } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 import { useEffect } from 'react';
 
 interface Props{
