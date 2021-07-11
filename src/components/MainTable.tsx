@@ -1,4 +1,4 @@
-import { useTable } from 'react-table';
+import { Column, useTable } from 'react-table';
 import { useMemo } from 'react';
 import { Table, Tbody, Thead, Tr, Th, Td } from '@chakra-ui/react';
 import { Symbol } from './../types';
@@ -10,9 +10,9 @@ interface Props {
 export const MainTable = (props: Props) => {
 	const { symbols } = props;
 
-	const data = useMemo(() => [symbols], [symbols]);
+	const data: Array<any> = useMemo(() => [symbols], [symbols]);
 
-	const columns = useMemo(
+	const columns: Array<Column> = useMemo(
 		() => [
 			{
 				Header: 'Current',
@@ -48,7 +48,6 @@ export const MainTable = (props: Props) => {
 		headerGroups,
 		rows,
 		prepareRow,
-		//@ts-ignore
 	} = useTable({ columns, data });
 
 	return (
