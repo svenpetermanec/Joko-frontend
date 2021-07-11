@@ -1,62 +1,48 @@
 //TODO: switch to react-hook-form
 import {
-    Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Input,
-    ModalCloseButton,
-    Button
+	Modal,
+	ModalContent,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+	Input,
+	ModalCloseButton,
+	Button,
 } from '@chakra-ui/react';
 
 interface Props {
-    modalOpen: boolean;
-    setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+	modalOpen: boolean;
+	setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const handleSubmit = () => {
-    console.log('test');
-}
+	console.log('test');
+};
 
 export const TickerModal = (props: Props) => {
-    const { modalOpen, setModalOpen } = props;
+	const { modalOpen, setModalOpen } = props;
 
-    return (
-        <Modal
-            isOpen={ modalOpen }
-            onClose={() => setModalOpen(false)}
-        >
-            <ModalContent>
-                <ModalHeader>Add new</ModalHeader>
+	return (
+		<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+			<ModalContent>
+				<ModalHeader>Add new</ModalHeader>
 
-                <ModalCloseButton/>
+				<ModalCloseButton />
 
-                <form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit}>
+					<ModalBody>
+						<Input my={3} placeholder={'Ticker'} />
 
-                <ModalBody>
-                    <Input
-                        my={3}
-                        placeholder={'Ticker'}
-                    />
+						<Input my={3} placeholder={'Quantity'} />
 
-                    <Input
-                        my={3}
-                        placeholder={'Quantity'}
-                    />
+						<Input my={3} placeholder={'Buy price'} />
+					</ModalBody>
 
-                    <Input
-                        my={3}
-                        placeholder={'Buy price'}
-                    />
-                </ModalBody>
-
-                <ModalFooter>
-                    <Button type='submit'>Add</Button>
-                </ModalFooter>
-                
-                </form>
-            </ModalContent>
-        </Modal>
-    );
+					<ModalFooter>
+						<Button type='submit'>Add</Button>
+					</ModalFooter>
+				</form>
+			</ModalContent>
+		</Modal>
+	);
 };

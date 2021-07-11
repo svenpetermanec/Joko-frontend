@@ -1,88 +1,84 @@
 import { useTable } from 'react-table';
 import { useMemo } from 'react';
-import { Table, Tbody, Thead, Tr, Th, Td} from '@chakra-ui/react';
-import { Symbol } from './../types'
+import { Table, Tbody, Thead, Tr, Th, Td } from '@chakra-ui/react';
+import { Symbol } from './../types';
 
-interface Props{
-   symbols: Symbol[],
+interface Props {
+	symbols: Symbol[];
 }
 
 export const MainTable = (props: Props) => {
-    const { symbols } = props;
-    
-    const data = useMemo(() => [symbols], [symbols]);
+	const { symbols } = props;
 
-    const columns = useMemo(
-        () => [
-        {
-            Header: 'Current',
-            accessor: "c",
-        },
-        {
-            Header: 'High',
-            accessor: "h",
-        },
-        {
-            Header: 'Low',
-            accessor: "l",
-        },
-        {
-            Header: 'Open',
-            accessor: "o",
-        },
-        {
-            Header: 'Previous close',
-            accessor: "pc",
-        },
-        {
-            Header: 'Time',
-            accessor: "t",
-        },
-        ],
-        []
-    );
+	const data = useMemo(() => [symbols], [symbols]);
 
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-        //@ts-ignore
-    } = useTable({ columns, data });
+	const columns = useMemo(
+		() => [
+			{
+				Header: 'Current',
+				accessor: 'c',
+			},
+			{
+				Header: 'High',
+				accessor: 'h',
+			},
+			{
+				Header: 'Low',
+				accessor: 'l',
+			},
+			{
+				Header: 'Open',
+				accessor: 'o',
+			},
+			{
+				Header: 'Previous close',
+				accessor: 'pc',
+			},
+			{
+				Header: 'Time',
+				accessor: 't',
+			},
+		],
+		[]
+	);
 
-    return (
-        <div>
-            <Table {...getTableProps()}>
-                <Thead bgColor="#363945">
-                    {headerGroups.map(headerGroup => (
-                    <Tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                        <Th {...column.getHeaderProps()}>
-                            {column.render('Header')}
-                        </Th>
-                        ))}
-                    </Tr>
-                    ))}
-                </Thead>
+	const {
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		rows,
+		prepareRow,
+		//@ts-ignore
+	} = useTable({ columns, data });
 
-                <Tbody bgColor="#363945" color="white" {...getTableBodyProps()}>
-                    {rows.map(row => {
-                    prepareRow(row)
-                    return (
-                        <Tr {...row.getRowProps()}>
-                        {row.cells.map(cell => {
-                            return (
-                            <Td {...cell.getCellProps()}>
-                                {cell.render('Cell')}
-                            </Td>
-                            );
-                        })}
-                        </Tr>
-                    );
-                    })}
-                </Tbody>
-            </Table>
-        </div>
-    );
+	return (
+		<div>
+			<Table {...getTableProps()}>
+				<Thead bgColor='#363945'>
+					{headerGroups.map(headerGroup => (
+						<Tr {...headerGroup.getHeaderGroupProps()}>
+							{headerGroup.headers.map(column => (
+								<Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
+							))}
+						</Tr>
+					))}
+				</Thead>
+
+				<Tbody bgColor='#363945' color='white' {...getTableBodyProps()}>
+					{rows.map(row => {
+						prepareRow(row);
+						return (
+							<Tr {...row.getRowProps()}>
+								{row.cells.map(cell => {
+									return (
+										<Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
+									);
+								})}
+							</Tr>
+						);
+					})}
+				</Tbody>
+			</Table>
+		</div>
+	);
 };

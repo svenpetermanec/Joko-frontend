@@ -6,12 +6,12 @@ import { TickerModal } from './TickerModal';
 import { ToastExample } from './ToastExample';
 import { ToastTesting } from './ToastTesting';
 
-export{
-    Loader,
-    MainPage,
-    MainTable,
-    TableButtonHolder,
-    TickerModal,
-    ToastExample,
-    ToastTesting
+export {
+	Loader,
+	MainPage,
+	MainTable,
+	TableButtonHolder,
+	TickerModal,
+	ToastExample,
+	ToastTesting,
 };
