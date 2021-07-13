@@ -58,7 +58,7 @@ export const TickerModal = (props: Props) => {
             <ModalTextInput
               isInvalid={errors.ticker ? true : false}
               placeholder='Ticker'
-              registerName={'ticker'}
+              registerName='ticker'
               register={register}
               errors={errors}
             />
@@ -66,7 +66,7 @@ export const TickerModal = (props: Props) => {
             <ModalTextInput
               isInvalid={errors.quantity ? true : false}
               placeholder='Quantity'
-              registerName={'quantity'}
+              registerName='quantity'
               register={register}
               errors={errors}
             />
@@ -74,7 +74,7 @@ export const TickerModal = (props: Props) => {
             <ModalTextInput
               isInvalid={errors.buyPrice ? true : false}
               placeholder='Buy price'
-              registerName={'buyPrice'}
+              registerName='buyPrice'
               register={register}
               errors={errors}
             />
