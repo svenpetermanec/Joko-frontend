@@ -1,20 +1,17 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Ticker } from '../types';
+import { ModalTextInput } from '.';
 
-//TODO: switch to react-hook-form
 import {
   Modal,
   ModalContent,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Input,
   ModalCloseButton,
   Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
 } from '@chakra-ui/react';
 
 interface Props {
@@ -23,9 +20,15 @@ interface Props {
 }
 
 const tickerSchema = yup.object().shape({
-  ticker: yup.string().required('prolazi yup'),
-  quantity: yup.string().required('prolazi yup'),
-  buyPrice: yup.string().required('prolazi yup'),
+  ticker: yup.string().required('Ticker is required'),
+  quantity: yup
+    .number()
+    .required('Quantity is required')
+    .typeError('Quantity must be a number'),
+  buyPrice: yup
+    .number()
+    .required('Buy price is required')
+    .typeError('Buy price must be a number'),
 });
 
 export const TickerModal = (props: Props) => {
@@ -35,11 +38,13 @@ export const TickerModal = (props: Props) => {
     formState: { errors },
     register,
     handleSubmit,
-  }= useForm({
+  } = useForm({
     resolver: yupResolver(tickerSchema),
   });
 
-  const onSubmit = (values:any) => {console.log(values)}
+  const onSubmit = (values: Ticker) => {
+    console.log(values);
+  };
 
   return (
     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
@@ -50,42 +55,29 @@ export const TickerModal = (props: Props) => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalBody>
-            <FormControl
-            isInvalid={errors.ticker ? true : false}
-            >
-              <FormLabel>Ticker</FormLabel>
-              <Input
-                my={3}
-                placeholder='Ticker'
-                {...register('ticker')}
-                errors={errors}
-              />
-              <FormErrorMessage>{errors.ticker?.message}</FormErrorMessage>
-            </FormControl>
+            <ModalTextInput
+              isInvalid={errors.ticker ? true : false}
+              placeholder='Ticker'
+              registerName={'ticker'}
+              register={register}
+              errors={errors}
+            />
 
-            <FormControl
-            isInvalid={errors.quantity ? true : false}
-            >
-              <Input
-              my={3}
+            <ModalTextInput
+              isInvalid={errors.quantity ? true : false}
               placeholder='Quantity'
-              {...register('quantity')}
+              registerName={'quantity'}
+              register={register}
               errors={errors}
-              />
-              <FormErrorMessage>{errors.quantity?.message}</FormErrorMessage>
-            </FormControl>
+            />
 
-            <FormControl
-            isInvalid={errors.buyPrice ? true : false}
-            >
-              <Input
-              my={3}
+            <ModalTextInput
+              isInvalid={errors.buyPrice ? true : false}
               placeholder='Buy price'
-              {...register('buyPrice')}
+              registerName={'buyPrice'}
+              register={register}
               errors={errors}
-              />
-              <FormErrorMessage>{errors.buyPrice?.message}</FormErrorMessage>
-            </FormControl>
+            />
           </ModalBody>
 
           <ModalFooter>
@@ -93,6 +85,6 @@ export const TickerModal = (props: Props) => {
           </ModalFooter>
         </form>
       </ModalContent>
-    </Modal>  
+    </Modal>
   );
 };

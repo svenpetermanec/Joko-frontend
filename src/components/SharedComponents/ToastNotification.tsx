@@ -7,7 +7,7 @@ interface Props {
   status: 'info' | 'warning' | 'success' | 'error';
 }
 
-export const ToastExample = (props: Props) => {
+export const ToastNotification = (props: Props) => {
   const { title, description, status = 'success' } = props;
 
   const toast = useToast();
