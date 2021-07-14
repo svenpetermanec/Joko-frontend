@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Ticker } from '../types';
 import { ModalTextInput } from '.';
+import axios from 'axios';
 
 import {
   Modal,
@@ -42,8 +43,8 @@ export const TickerModal = (props: Props) => {
     resolver: yupResolver(tickerSchema),
   });
 
-  const onSubmit = (values: Ticker) => {
-    console.log(values);
+  const onSubmit = async (values: Ticker) => {
+    await axios.post('http://localhost:4000/api/symbol', values).then( () => axios.get('http://localhost:4000/api/symbol/' + values.ticker));
   };
 
   return (
