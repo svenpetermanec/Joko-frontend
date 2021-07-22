@@ -4,7 +4,7 @@ interface Props {}
 
 export const Loader = (props: Props) => {
   return (
-    <Center w='100%' h='100%' top='0' left='0'>
+    <Center w='100%' h='100%' top='0' left='0' pos='relative'>
       <Spinner
         thickness='4px'
         speed='0.65s'

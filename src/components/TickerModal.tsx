@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Ticker } from '../types';
-import { ModalTextInput } from '.';
+import { ModalTextInput, ToastNotification, Loader } from '.';
 import axios from 'axios';
 
 import {
@@ -35,6 +36,8 @@ const tickerSchema = yup.object().shape({
 export const TickerModal = (props: Props) => {
   const { modalOpen, setModalOpen } = props;
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const {
     formState: { errors },
     register,
@@ -44,7 +47,13 @@ export const TickerModal = (props: Props) => {
   });
 
   const onSubmit = async (values: Ticker) => {
-    await axios.post('http://localhost:4000/api/symbol', values).then( () => axios.get('http://localhost:4000/api/symbol/' + values.ticker));
+    setIsLoading(true);
+    await axios
+      .post('http://localhost:4000/api/symbol', values)
+      .then(() =>
+        axios.get('http://localhost:4000/api/symbol/' + values.ticker)
+      );
+    setIsLoading(false);
   };
 
   return (
@@ -79,6 +88,8 @@ export const TickerModal = (props: Props) => {
               register={register}
               errors={errors}
             />
+
+            {isLoading && <Loader/>}
           </ModalBody>
 
           <ModalFooter>

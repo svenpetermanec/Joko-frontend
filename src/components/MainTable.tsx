@@ -41,7 +41,7 @@ export const MainTable = (props: Props) => {
     ],
     []
   );
-
+  
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 

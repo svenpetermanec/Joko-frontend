@@ -11,7 +11,7 @@ export const ToastTesting = (props: Props) => {
     <Box>
       <Button onClick={() => setToast(true)} />
       {toast && (
-        //<ToastExample status='error'/><
+        //<ToastExample status='error'/>
         <span />
       )}
     </Box>
