@@ -3,20 +3,19 @@ import { useEffect } from 'react';
 
 interface Props {
   title: string;
-  description: string;
   status: 'info' | 'warning' | 'success' | 'error';
 }
 
 export const ToastNotification = (props: Props) => {
-  const { title, description, status = 'success' } = props;
+  const { title, status = 'success' } = props;
 
   const toast = useToast();
 
   useEffect(() => {
     toast({
       title: title,
-      description: description,
       status: status,
+      position: 'top',
       duration: 3000,
       isClosable: true,
     });

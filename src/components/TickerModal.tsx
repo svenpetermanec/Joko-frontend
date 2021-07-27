@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Ticker } from '../types';
 import { ModalTextInput, ToastNotification, Loader } from '.';
 import axios from 'axios';
+import { BACKEND_DOMAIN } from './../api/apiUtil';
 
 import {
   Modal,
@@ -37,7 +38,7 @@ export const TickerModal = (props: Props) => {
   const { modalOpen, setModalOpen } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [toastNotification, setToastNotification] = useState<boolean>(false);
   const {
     formState: { errors },
     register,
@@ -48,14 +49,13 @@ export const TickerModal = (props: Props) => {
 
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
-    await axios
-      .post('http://localhost:4000/api/symbol', values)
-      .then(() =>
-        axios.get('http://localhost:4000/api/symbol/' + values.ticker)
-      );
+    await axios.post(`${BACKEND_DOMAIN}/api/symbol/`, values);
+    await axios.get(`${BACKEND_DOMAIN}/api/symbol/` + values.ticker);
     setIsLoading(false);
+    setToastNotification(true);
+    setModalOpen(false);
   };
-
+  
   return (
     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
       <ModalContent>
@@ -89,7 +89,7 @@ export const TickerModal = (props: Props) => {
               errors={errors}
             />
 
-            {isLoading && <Loader/>}
+            {isLoading && <Loader />}
           </ModalBody>
 
           <ModalFooter>
@@ -97,6 +97,10 @@ export const TickerModal = (props: Props) => {
           </ModalFooter>
         </form>
       </ModalContent>
+
+      {toastNotification && (
+        <ToastNotification title='Successfully added' status='success' />
+      )}
     </Modal>
   );
 };
