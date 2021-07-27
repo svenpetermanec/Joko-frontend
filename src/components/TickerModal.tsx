@@ -4,8 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Ticker } from '../types';
 import { ModalTextInput, ToastNotification, Loader } from '.';
-import axios from 'axios';
-import { BACKEND_DOMAIN } from './../api/apiUtil';
+
 
 import {
   Modal,
@@ -16,6 +15,8 @@ import {
   ModalCloseButton,
   Button,
 } from '@chakra-ui/react';
+import { postTicker } from '../api';
+import { getTicker } from '../api/server.api';
 
 interface Props {
   modalOpen: boolean;
@@ -49,11 +50,12 @@ export const TickerModal = (props: Props) => {
 
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
-    await axios.post(`${BACKEND_DOMAIN}/api/symbol/`, values);
-    await axios.get(`${BACKEND_DOMAIN}/api/symbol/` + values.ticker);
+    await postTicker(values);
+    var data = await getTicker(values.ticker);
     setIsLoading(false);
     setToastNotification(true);
     setModalOpen(false);
+    console.log(data)
   };
   
   return (
