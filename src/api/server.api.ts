@@ -11,3 +11,7 @@ export const postTicker = (ticker: Ticker) => {
 export const getTicker = (ticker: string) => {
     return axios.get(`${BACKEND_DOMAIN}/api/symbol/` + ticker);
 }
+
+export const getPrice = (symbol: string) => {
+    return axios.get(`${BACKEND_DOMAIN}/api/finnhub/` + symbol);
+  };

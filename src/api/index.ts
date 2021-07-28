@@ -1,7 +1,11 @@
-import { getPrice } from './fetch.api';
-import { postTicker } from './server.api';
+import {
+    postTicker,
+    getTicker,
+    getPrice
+} from './server.api';
 
 export {
-    getPrice,
     postTicker,
+    getTicker,
+    getPrice,
 };

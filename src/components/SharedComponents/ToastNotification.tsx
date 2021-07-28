@@ -16,6 +16,7 @@ export const ToastNotification = (props: Props) => {
       title: title,
       status: status,
       position: 'top',
+      variant: 'subtle',
       duration: 3000,
       isClosable: true,
     });
