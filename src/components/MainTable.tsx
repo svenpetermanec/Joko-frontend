@@ -10,8 +10,8 @@ interface Props {
 export const MainTable = (props: Props) => {
   const { symbols } = props;
 
-  const data: Array<any> = useMemo(() => [symbols], [symbols]);
-
+  const data: any = symbols;
+  
   const columns: Array<Column> = useMemo(
     () => [
       {
