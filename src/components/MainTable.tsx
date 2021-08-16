@@ -5,10 +5,12 @@ import { Symbol } from './../types';
 
 interface Props {
   symbols: Symbol[];
+  rowsAreDeletable: boolean;
+  setDeletionModalOpen: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const MainTable = (props: Props) => {
-  const { symbols } = props;
+  const { symbols, rowsAreDeletable, setDeletionModalOpen } = props;
 
   const data: any = symbols;
   
@@ -68,6 +70,18 @@ export const MainTable = (props: Props) => {
                     <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   );
                 })}
+                { rowsAreDeletable && (
+                  <Td onClick = {(e) => {
+                    e.stopPropagation();
+                    setDeletionModalOpen({
+                      isOpen: true,
+                      ticker: row.original,
+                    })
+                  }}
+                  >
+                    X
+                  </Td>
+                )}
               </Tr>
             );
           })}
