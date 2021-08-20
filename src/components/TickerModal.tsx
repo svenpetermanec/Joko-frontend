@@ -16,7 +16,6 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { postTicker } from '../api';
-import { getTicker } from '../api/server.api';
 
 interface Props {
   modalOpen: boolean;
@@ -51,11 +50,9 @@ export const TickerModal = (props: Props) => {
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
     await postTicker(values);
-    var data = await getTicker(values.ticker);
     setIsLoading(false);
     setToastNotification(true);
     setModalOpen(false);
-    console.log(data)
   };
   
   return (
