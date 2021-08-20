@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Ticker } from '../types';
 import { ModalTextInput, ToastNotification, Loader } from '.';
 
-
 import {
   Modal,
   ModalContent,
@@ -54,7 +53,7 @@ export const TickerModal = (props: Props) => {
     setToastNotification(true);
     setModalOpen(false);
   };
-  
+
   return (
     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
       <ModalContent>

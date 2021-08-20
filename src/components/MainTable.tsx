@@ -11,7 +11,7 @@ export const MainTable = (props: Props) => {
   const { tickers } = props;
 
   const data: any = tickers;
-  
+
   const columns: Array<Column> = useMemo(
     () => [
       {
