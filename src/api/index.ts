@@ -1,11 +1,9 @@
 import {
     postTicker,
-    getTicker,
-    getPrice
+    getAllTickers,
 } from './server.api';
 
 export {
     postTicker,
-    getTicker,
-    getPrice,
+    getAllTickers,
 };

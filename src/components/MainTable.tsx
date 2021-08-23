@@ -1,44 +1,36 @@
 import { Column, useTable } from 'react-table';
 import { useMemo } from 'react';
 import { Table, Tbody, Thead, Tr, Th, Td } from '@chakra-ui/react';
-import { Symbol } from './../types';
+import { Ticker } from './../types';
 
 interface Props {
-  symbols: Symbol[];
+  tickers: Ticker[];
   rowsAreDeletable: boolean;
   setDeletionModalOpen: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const MainTable = (props: Props) => {
-  const { symbols, rowsAreDeletable, setDeletionModalOpen } = props;
+  const { tickers, rowsAreDeletable, setDeletionModalOpen } = props;
 
-  const data: any = symbols;
-  
+  const data: any = tickers;
+
   const columns: Array<Column> = useMemo(
     () => [
       {
-        Header: 'Current',
-        accessor: 'c',
+        Header: 'Ticker',
+        accessor: 'ticker',
       },
       {
-        Header: 'High',
-        accessor: 'h',
+        Header: 'qunatity',
+        accessor: 'quantity',
       },
       {
-        Header: 'Low',
-        accessor: 'l',
+        Header: 'Buy price',
+        accessor: 'buyPrice',
       },
       {
-        Header: 'Open',
-        accessor: 'o',
-      },
-      {
-        Header: 'Previous close',
-        accessor: 'pc',
-      },
-      {
-        Header: 'Time',
-        accessor: 't',
+        Header: 'Current price',
+        accessor: 'price',
       },
     ],
     []
