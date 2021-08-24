@@ -31,9 +31,9 @@ export const MainPage = (props: Props) => {
 
       {!isLoading && tickers.length !== 0 ? (
         <MainTable
-        tickers={tickers}
-        rowsAreDeletable={true}
-        setDeletionModalOpen={setDeletionModalOpen}
+          tickers={tickers}
+          rowsAreDeletable={true}
+          setDeletionModalOpen={setDeletionModalOpen}
         />
       ) : (
         <Loader />
@@ -44,7 +44,10 @@ export const MainPage = (props: Props) => {
       )}
 
       {deletionModalOpen && (
-        <DeletionModal modalOpen={deletionModalOpen} setModalOpen={setDeletionModalOpen} />
+        <DeletionModal
+          modalOpen={deletionModalOpen}
+          setModalOpen={setDeletionModalOpen}
+        />
       )}
     </>
   );
