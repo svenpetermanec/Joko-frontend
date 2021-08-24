@@ -5,10 +5,12 @@ import { Ticker } from './../types';
 
 interface Props {
   tickers: Ticker[];
+  rowsAreDeletable: boolean;
+  setDeletionModalOpen: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const MainTable = (props: Props) => {
-  const { tickers } = props;
+  const { tickers, rowsAreDeletable, setDeletionModalOpen } = props;
 
   const data: any = tickers;
 
@@ -44,8 +46,15 @@ export const MainTable = (props: Props) => {
           {headerGroups.map(headerGroup => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
+                <Th fontSize='15px' {...column.getHeaderProps()}>{column.render('Header')}</Th>
               ))}
+
+              {rowsAreDeletable && (
+                <Th
+                  position="sticky"
+                  top={0}
+                />
+              )}
             </Tr>
           ))}
         </Thead>
@@ -60,6 +69,19 @@ export const MainTable = (props: Props) => {
                     <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   );
                 })}
+                { rowsAreDeletable && (
+                  <Td onClick = {(e) => {
+                    e.stopPropagation();
+                    setDeletionModalOpen({
+                      isOpen: true,
+                      ticker: row.original,
+                    })
+                  }}
+                  >
+                    {/* TODO: icon */}
+                    X
+                  </Td>
+                )}
               </Tr>
             );
           })}

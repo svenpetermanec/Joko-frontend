@@ -91,7 +91,7 @@ export const TickerModal = (props: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button type='submit'>Add</Button>
+            <Button colorScheme='blue' type='submit'>Add</Button>
           </ModalFooter>
         </form>
       </ModalContent>
