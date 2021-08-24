@@ -10,4 +10,8 @@ export const postTicker = (ticker: Ticker) => {
 
 export const getAllTickers = () => {
     return axios.get(`${BACKEND_DOMAIN}/test`)
-}
+};
+
+export const deleteTicker = (ticker: Ticker) => {
+    return axios.delete(`${BACKEND_DOMAIN}/ticker`);
+};

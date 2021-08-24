@@ -52,7 +52,7 @@ export const DeletionModal = (props: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button onClick={handleDeletion}>Delete</Button>
+            <Button colorScheme='red' onClick={handleDeletion}>Delete</Button>
           </ModalFooter>
       </ModalContent>
 
