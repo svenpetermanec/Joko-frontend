@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MainTable, TableButtonHolder, TickerModal, Loader } from '.';
-import { Ticker } from './../types';
+import { Ticker } from '../types';
 import { getAllTickers } from '../api/server.api';
 import { DeletionModal } from './DeletionModal';
 

@@ -1,7 +1,8 @@
 import { Column, useTable } from 'react-table';
 import { useMemo } from 'react';
 import { Table, Tbody, Thead, Tr, Th, Td } from '@chakra-ui/react';
-import { Ticker } from './../types';
+import { Ticker } from '../types';
+import { MainPageHeaders } from '../util/MainPageUtil';
 
 interface Props {
   tickers: Ticker[];
@@ -14,27 +15,7 @@ export const MainTable = (props: Props) => {
 
   const data: any = tickers;
 
-  const columns: Array<Column> = useMemo(
-    () => [
-      {
-        Header: 'Ticker',
-        accessor: 'ticker',
-      },
-      {
-        Header: 'qunatity',
-        accessor: 'quantity',
-      },
-      {
-        Header: 'Buy price',
-        accessor: 'buyPrice',
-      },
-      {
-        Header: 'Current price',
-        accessor: 'price',
-      },
-    ],
-    []
-  );
+  const columns: Array<Column> = useMemo(() => MainPageHeaders, []);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
