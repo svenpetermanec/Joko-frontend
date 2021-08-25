@@ -17,6 +17,8 @@ import {
 import { postTicker } from '../api';
 
 interface Props {
+  tickers: Ticker[];
+  setTickers: React.Dispatch<React.SetStateAction<Ticker[]>>;
   modalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -34,7 +36,7 @@ const tickerSchema = yup.object().shape({
 });
 
 export const TickerModal = (props: Props) => {
-  const { modalOpen, setModalOpen } = props;
+  const { tickers, setTickers, modalOpen, setModalOpen } = props;
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [toastNotification, setToastNotification] = useState<boolean>(false);
@@ -48,7 +50,7 @@ export const TickerModal = (props: Props) => {
 
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
-    await postTicker(values);
+    await postTicker(values).then(res => setTickers([...tickers, res.data]))
     setIsLoading(false);
     setToastNotification(true);
     setModalOpen(false);

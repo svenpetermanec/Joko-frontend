@@ -23,7 +23,7 @@ export const MainPage = (props: Props) => {
 
   useEffect(() => {
     fetchData();
-  }, [setTickers]);
+  }, []);
 
   return (
     <>
@@ -40,7 +40,10 @@ export const MainPage = (props: Props) => {
       )}
 
       {modalOpener && (
-        <TickerModal modalOpen={modalOpener} setModalOpen={setModalOpener} />
+        <TickerModal
+          tickers={tickers}
+          setTickers={setTickers}
+          modalOpen={modalOpener} setModalOpen={setModalOpener} />
       )}
 
       {deletionModalOpen && (

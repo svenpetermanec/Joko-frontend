@@ -12,7 +12,6 @@ import {
   Button,
   Text,
 } from '@chakra-ui/react';
-
 interface Props {
   modalOpen: any;
   setModalOpen: React.Dispatch<React.SetStateAction<any>>;
