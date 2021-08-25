@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ToastNotification } from '.';
-import { deleteTicker } from '../api/server.api';
+import { deleteTicker } from './../api';
 
 import {
   Modal,

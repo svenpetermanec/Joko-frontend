@@ -50,7 +50,7 @@ export const TickerModal = (props: Props) => {
 
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
-    await postTicker(values).then(res => setTickers([...tickers, res.data]))
+    await postTicker(values).then(res => setTickers([...tickers, res.data]));
     setIsLoading(false);
     setToastNotification(true);
     setModalOpen(false);
@@ -93,7 +93,9 @@ export const TickerModal = (props: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' type='submit'>Add</Button>
+            <Button colorScheme='blue' type='submit'>
+              Add
+            </Button>
           </ModalFooter>
         </form>
       </ModalContent>

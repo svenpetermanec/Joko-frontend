@@ -46,15 +46,12 @@ export const MainTable = (props: Props) => {
           {headerGroups.map(headerGroup => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <Th fontSize='15px' {...column.getHeaderProps()}>{column.render('Header')}</Th>
+                <Th fontSize='15px' {...column.getHeaderProps()}>
+                  {column.render('Header')}
+                </Th>
               ))}
 
-              {rowsAreDeletable && (
-                <Th
-                  position="sticky"
-                  top={0}
-                />
-              )}
+              {rowsAreDeletable && <Th position='sticky' top={0} />}
             </Tr>
           ))}
         </Thead>
@@ -69,17 +66,17 @@ export const MainTable = (props: Props) => {
                     <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   );
                 })}
-                { rowsAreDeletable && (
-                  <Td onClick = {(e) => {
-                    e.stopPropagation();
-                    setDeletionModalOpen({
-                      isOpen: true,
-                      ticker: row.original,
-                    })
-                  }}
+                {rowsAreDeletable && (
+                  <Td
+                    onClick={e => {
+                      e.stopPropagation();
+                      setDeletionModalOpen({
+                        isOpen: true,
+                        ticker: row.original,
+                      });
+                    }}
                   >
-                    {/* TODO: icon */}
-                    X
+                    {/* TODO: icon */}X
                   </Td>
                 )}
               </Tr>

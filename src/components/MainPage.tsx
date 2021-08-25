@@ -43,7 +43,9 @@ export const MainPage = (props: Props) => {
         <TickerModal
           tickers={tickers}
           setTickers={setTickers}
-          modalOpen={modalOpener} setModalOpen={setModalOpener} />
+          modalOpen={modalOpener}
+          setModalOpen={setModalOpener}
+        />
       )}
 
       {deletionModalOpen && (

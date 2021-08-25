@@ -4,7 +4,6 @@ import { MainTable } from './MainTable';
 import { TableButtonHolder } from './TableButtonHolder';
 import { TickerModal } from './TickerModal';
 import { ToastNotification } from './SharedComponents/ToastNotification';
-import { ToastTesting } from './ToastTesting';
 import { ModalTextInput } from './SharedComponents/ModalTextInput';
 
 export {
@@ -14,6 +13,5 @@ export {
   TableButtonHolder,
   TickerModal,
   ToastNotification,
-  ToastTesting,
   ModalTextInput,
 };
