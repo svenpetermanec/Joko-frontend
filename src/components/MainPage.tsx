@@ -50,6 +50,8 @@ export const MainPage = (props: Props) => {
 
       {deletionModalOpen && (
         <DeletionModal
+          tickers={tickers}
+          setTickers={setTickers}
           modalOpen={deletionModalOpen}
           setModalOpen={setDeletionModalOpen}
         />

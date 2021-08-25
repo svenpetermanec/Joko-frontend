@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ToastNotification } from '.';
 import { deleteTicker } from './../api';
+import { Ticker } from './../types';
 
 import {
   Modal,
@@ -13,22 +14,28 @@ import {
   Text,
 } from '@chakra-ui/react';
 interface Props {
+  tickers: Ticker[];
+  setTickers: React.Dispatch<React.SetStateAction<Ticker[]>>;
   modalOpen: any;
   setModalOpen: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const DeletionModal = (props: Props) => {
-  const { modalOpen, setModalOpen } = props;
+  const { tickers, setTickers, modalOpen, setModalOpen } = props;
 
   const [toastNotification, setToastNotification] = useState<boolean>(false);
 
   const handleDeletion = async () => {
     await deleteTicker(modalOpen.ticker);
+    setTickers(
+      tickers.filter(ticker => ticker.ticker !== modalOpen.ticker.ticker)
+    );
     setToastNotification(true);
     setModalOpen({
       isOpen: false,
       ticker: null,
     });
+    setToastNotification(false);
   };
 
   return (
