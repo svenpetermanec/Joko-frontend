@@ -43,7 +43,7 @@ export const DeletionModal = (props: Props) => {
       isOpen={modalOpen.isOpen}
       onClose={() => setModalOpen({ isOpen: false })}
     >
-      <ModalContent>
+      <ModalContent bg='#2D2F39' color='white'>
         <ModalHeader>Delete entery</ModalHeader>
 
         <ModalCloseButton />
@@ -56,7 +56,7 @@ export const DeletionModal = (props: Props) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button colorScheme='red' onClick={handleDeletion}>
+          <Button bg='#db504a' color='white' onClick={handleDeletion}>
             Delete
           </Button>
         </ModalFooter>

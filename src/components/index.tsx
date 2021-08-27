@@ -5,6 +5,8 @@ import { TableButtonHolder } from './TableButtonHolder';
 import { TickerModal } from './TickerModal';
 import { ToastNotification } from './SharedComponents/ToastNotification';
 import { ModalTextInput } from './SharedComponents/ModalTextInput';
+import { Home } from '../pages/Home.page';
+import { UnderConstruction } from './UnderConstruction';
 
 export {
   Loader,
@@ -14,4 +16,6 @@ export {
   TickerModal,
   ToastNotification,
   ModalTextInput,
+  Home,
+  UnderConstruction,
 };

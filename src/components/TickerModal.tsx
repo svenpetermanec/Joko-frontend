@@ -58,7 +58,7 @@ export const TickerModal = (props: Props) => {
 
   return (
     <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-      <ModalContent>
+      <ModalContent bg='#2D2F39' color='white'>
         <ModalHeader>Add new</ModalHeader>
 
         <ModalCloseButton />
@@ -93,7 +93,7 @@ export const TickerModal = (props: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button bg='#21ce99' type='submit'>
+            <Button bg='#2cd1a2' color='#363945' type='submit'>
               Add
             </Button>
           </ModalFooter>

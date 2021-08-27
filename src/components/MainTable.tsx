@@ -32,7 +32,7 @@ export const MainTable = (props: Props) => {
                   top={0}
                   textAlign='center'
                   fontSize='15px'
-                  bg='#21ce99'
+                  bg='#2cd1a2'
                   {...column.getHeaderProps()}
                 >
                   {column.render('Header')}
@@ -40,7 +40,7 @@ export const MainTable = (props: Props) => {
               ))}
 
               {rowsAreDeletable && (
-                <Th bg='#21ce99' position='sticky' top={0} />
+                <Th bg='#2cd1a2' position='sticky' top={0} />
               )}
             </Tr>
           ))}
@@ -68,7 +68,7 @@ export const MainTable = (props: Props) => {
                       });
                     }}
                   >
-                    <Button bg='none' color='#21ce99'>
+                    <Button bg='none' color='#db504a'>
                       X
                     </Button>
                   </Td>
