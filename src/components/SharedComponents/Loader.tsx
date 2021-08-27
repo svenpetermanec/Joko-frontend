@@ -9,7 +9,7 @@ export const Loader = (props: Props) => {
         thickness='4px'
         speed='0.65s'
         emptyColor='gray.200'
-        color='#0082f0'
+        color='#21ce99'
         size='xl'
       />
     </Center>

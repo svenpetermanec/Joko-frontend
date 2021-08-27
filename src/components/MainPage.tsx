@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { MainTable, TableButtonHolder, TickerModal, Loader } from '.';
-import { Ticker } from '../types';
+import { TickerProfit } from '../types';
 import { getAllTickers } from '../api/server.api';
 import { DeletionModal } from './DeletionModal';
+import { MainPageHeaders } from '../util/MainPageUtil';
 
 interface Props {}
 
 export const MainPage = (props: Props) => {
-  const [tickers, setTickers] = useState<Ticker[]>([]);
+  const [tickers, setTickers] = useState<TickerProfit[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [modalOpener, setModalOpener] = useState<boolean>(false);
   const [deletionModalOpen, setDeletionModalOpen] = useState({
@@ -32,6 +33,7 @@ export const MainPage = (props: Props) => {
       {!isLoading && tickers.length !== 0 ? (
         <MainTable
           tickers={tickers}
+          headers={MainPageHeaders}
           rowsAreDeletable={true}
           setDeletionModalOpen={setDeletionModalOpen}
         />

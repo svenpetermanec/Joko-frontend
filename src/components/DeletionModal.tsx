@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ToastNotification } from '.';
 import { deleteTicker } from './../api';
-import { Ticker } from './../types';
+import { TickerProfit } from './../types';
 
 import {
   Modal,
@@ -14,8 +14,8 @@ import {
   Text,
 } from '@chakra-ui/react';
 interface Props {
-  tickers: Ticker[];
-  setTickers: React.Dispatch<React.SetStateAction<Ticker[]>>;
+  tickers: TickerProfit[];
+  setTickers: React.Dispatch<React.SetStateAction<TickerProfit[]>>;
   modalOpen: any;
   setModalOpen: React.Dispatch<React.SetStateAction<any>>;
 }

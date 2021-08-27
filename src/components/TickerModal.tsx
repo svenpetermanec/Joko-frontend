@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Ticker } from '../types';
+import { Ticker, TickerProfit } from '../types';
 import { ModalTextInput, ToastNotification, Loader } from '.';
 
 import {
@@ -17,8 +17,8 @@ import {
 import { postTicker } from '../api';
 
 interface Props {
-  tickers: Ticker[];
-  setTickers: React.Dispatch<React.SetStateAction<Ticker[]>>;
+  tickers: TickerProfit[];
+  setTickers: React.Dispatch<React.SetStateAction<TickerProfit[]>>;
   modalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -93,7 +93,7 @@ export const TickerModal = (props: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' type='submit'>
+            <Button bg='#21ce99' type='submit'>
               Add
             </Button>
           </ModalFooter>

@@ -15,7 +15,7 @@ export const TableButtonHolder = (props: Props) => {
       boxShadow={'rgba(0, 0, 0, 0.25) 0px 2px 4px'}
       border={'1px solid rgba(0, 0, 0, 0.1)'}
     >
-      <Button colorScheme='blue' onClick={() => modalOpener(true)}>
+      <Button bg='#21ce99' color='#363945' onClick={() => modalOpener(true)}>
         Add new
       </Button>
     </Box>
