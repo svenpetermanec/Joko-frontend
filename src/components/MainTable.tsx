@@ -1,6 +1,7 @@
 import { Column, useTable } from 'react-table';
 import { useMemo } from 'react';
-import { Table, Tbody, Thead, Tr, Th, Td, Button } from '@chakra-ui/react';
+import { Table, Tbody, Thead, Tr, Th, Td, Icon } from '@chakra-ui/react';
+import { TiDelete } from 'react-icons/ti';
 import { TickerProfit } from '../types';
 
 interface Props {
@@ -68,9 +69,7 @@ export const MainTable = (props: Props) => {
                       });
                     }}
                   >
-                    <Button bg='none' color='#db504a'>
-                      X
-                    </Button>
+                    <Icon as={TiDelete} boxSize={'30px'} color='#db504a' />
                   </Td>
                 )}
               </Tr>
