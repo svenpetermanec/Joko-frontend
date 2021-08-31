@@ -1,8 +1,8 @@
 import { Center, Spinner } from '@chakra-ui/react';
-
-interface Props {}
-
-export const Loader = (props: Props) => {
+/**
+ * Component used to display a spinner.
+ */
+export const Loader = () => {
   return (
     <Center w='100%' h='100%' top='0' left='0' pos='relative'>
       <Spinner
