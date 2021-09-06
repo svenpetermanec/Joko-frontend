@@ -69,7 +69,12 @@ export const MainTable = (props: Props) => {
                       });
                     }}
                   >
-                    <Icon as={TiDelete} boxSize={'30px'} color='#db504a' />
+                    <Icon
+                      _hover={{ cursor: 'pointer' }}
+                      as={TiDelete}
+                      boxSize={'30px'}
+                      color='#db504a'
+                    />
                   </Td>
                 )}
               </Tr>
