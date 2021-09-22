@@ -28,3 +28,8 @@ npm-debug.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+#tests
+cypress/fixtures
+cypress/plugins
+cypress/support

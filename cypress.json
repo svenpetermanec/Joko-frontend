@@ -1,6 +1,8 @@
 {
-  "baseUrl": "http://localhost:3000",
+  "integrationFolder": "cypress/tests",
+  "video": false,
+  "screenshotOnRunFailure": false,
   "env": {
-    "baseAPIUrl": "https://joko.herokuapp.com"
+    "baseAPIUrl": "https://untitled-yxwzufh3po95.runkit.sh"
   }
 }

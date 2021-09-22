@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cyopen": "./node_modules/.bin/cypress open",
+    "cyrun": "./node_modules/.bin/cypress ru"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,7 @@
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.8",
     "@types/react-table": "^7.7.1",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "cypress": "^8.3.0"
   }
 }
