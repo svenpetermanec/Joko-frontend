@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react';
 
 interface Props {
-  isInvalid: boolean;
   placeholder: string;
   registerName: string;
   register: UseFormRegister<FieldValues>;
@@ -21,10 +20,9 @@ interface Props {
 }
 
 export const ModalTextInput = (props: Props) => {
-  const { isInvalid, placeholder, registerName, register, errors } = props;
-
+  const { placeholder, registerName, register, errors } = props;
   return (
-    <FormControl isInvalid={isInvalid} mt={3}>
+    <FormControl isInvalid={errors[registerName]} mt={3}>
       <FormLabel>{placeholder}</FormLabel>
 
       <Input

@@ -66,7 +66,6 @@ export const TickerModal = (props: Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalBody>
             <ModalTextInput
-              isInvalid={errors.ticker ? true : false}
               placeholder='Ticker'
               registerName='ticker'
               register={register}
@@ -74,7 +73,6 @@ export const TickerModal = (props: Props) => {
             />
 
             <ModalTextInput
-              isInvalid={errors.quantity ? true : false}
               placeholder='Quantity'
               registerName='quantity'
               register={register}
@@ -82,7 +80,6 @@ export const TickerModal = (props: Props) => {
             />
 
             <ModalTextInput
-              isInvalid={errors.buyPrice ? true : false}
               placeholder='Buy price'
               registerName='buyPrice'
               register={register}

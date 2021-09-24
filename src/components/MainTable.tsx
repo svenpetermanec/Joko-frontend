@@ -22,7 +22,7 @@ export const MainTable = (props: Props) => {
     useTable({ columns, data });
 
   return (
-    <div>
+    <div style={{ overflow: 'auto' }}>
       <Table {...getTableProps()}>
         <Thead>
           {headerGroups.map(headerGroup => (
