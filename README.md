@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![joko](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/x9xz4r&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/x9xz4r/runs)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

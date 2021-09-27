@@ -2,6 +2,7 @@
   "integrationFolder": "cypress/tests",
   "video": false,
   "screenshotOnRunFailure": false,
+  "projectId": "x9xz4r",
   "env": {
     "baseAPIUrl": "https://untitled-yxwzufh3po95.runkit.sh"
   }
