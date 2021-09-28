@@ -3,15 +3,16 @@ import axios from 'axios';
 import { BACKEND_DOMAIN } from './../api/apiUtil';
 
 import { Ticker } from '../types';
+import axiosClient from './axiosClient';
 
 export const postTicker = (ticker: Ticker) => {
-  return axios.post(`${BACKEND_DOMAIN}/ticker`, ticker);
+  return axiosClient.post('/ticker', ticker);
 };
 
 export const getAllTickers = () => {
-  return axios.get(`${BACKEND_DOMAIN}/tickers`);
+  return axiosClient.get('/tickers');
 };
 
 export const deleteTicker = (ticker: Ticker) => {
-  return axios.delete(`${BACKEND_DOMAIN}/ticker/${ticker.ticker}`);
+  return axiosClient.delete('/ticker/${ticker.ticker}');
 };
