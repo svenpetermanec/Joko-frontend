@@ -54,7 +54,18 @@ export const MainTable = (props: Props) => {
               <Tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <Td textAlign='center' {...cell.getCellProps()}>
+                    <Td
+                      color={
+                        cell.column.Header === 'Profit'
+                          ? cell.value >= 0
+                            ? 'green'
+                            : 'red'
+                          : 'current'
+                      }
+                      textAlign='center'
+                      {...cell.getCellProps()}
+                    >
+                      {console.log(cell.column.Header)}
                       {cell.render('Cell')}
                     </Td>
                   );
