@@ -18,7 +18,8 @@ export const MainPage = (props: Props) => {
 
   async function fetchData() {
     setIsLoading(true);
-    await getAllTickers().then(result => setTickers(result.data));
+    const { data } = await getAllTickers();
+    setTickers(data);
     setIsLoading(false);
   }
 

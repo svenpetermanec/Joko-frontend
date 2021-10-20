@@ -50,7 +50,8 @@ export const TickerModal = (props: Props) => {
 
   const onSubmit = async (values: Ticker) => {
     setIsLoading(true);
-    await postTicker(values).then(res => setTickers([...tickers, res.data]));
+    const { data } = await postTicker(values);
+    setTickers([...tickers, data]);
     setIsLoading(false);
     setToastNotification(true);
     setModalOpen(false);

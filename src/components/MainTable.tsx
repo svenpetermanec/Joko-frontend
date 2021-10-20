@@ -65,7 +65,6 @@ export const MainTable = (props: Props) => {
                       textAlign='center'
                       {...cell.getCellProps()}
                     >
-                      {console.log(cell.column.Header)}
                       {cell.render('Cell')}
                     </Td>
                   );
