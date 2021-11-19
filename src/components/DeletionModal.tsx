@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ToastNotification } from '.';
 import { deleteTicker } from './../api';
 import { TickerProfit } from './../types';
+import { Ticker } from '../types/Ticker.type';
 
 import {
   Modal,
@@ -28,7 +29,9 @@ export const DeletionModal = (props: Props) => {
   const handleDeletion = async () => {
     await deleteTicker(modalOpen.ticker);
     setTickers(
-      tickers.filter(ticker => ticker.ticker !== modalOpen.ticker.ticker)
+      tickers.filter(
+        (ticker: Ticker) => ticker.ticker !== modalOpen.ticker.ticker
+      )
     );
     setToastNotification(true);
     setModalOpen({

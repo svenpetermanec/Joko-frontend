@@ -2,10 +2,10 @@ import { Column, useTable } from 'react-table';
 import { useMemo } from 'react';
 import { Table, Tbody, Thead, Tr, Th, Td, Icon } from '@chakra-ui/react';
 import { TiDelete } from 'react-icons/ti';
-import { TickerProfit } from '../types';
+import { Dividend, TickerProfit } from '../types';
 
 interface Props {
-  tickers: TickerProfit[];
+  tickers: TickerProfit[] | Dividend[];
   headers: Column[];
   rowsAreDeletable: boolean;
   setDeletionModalOpen: React.Dispatch<React.SetStateAction<any>>;
