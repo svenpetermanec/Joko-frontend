@@ -1,8 +1,5 @@
-import axios from 'axios';
-
-import { BACKEND_DOMAIN } from './../api/apiUtil';
-
 import { Ticker } from '../types';
+
 import axiosClient from './axiosClient';
 
 export const postTicker = (ticker: Ticker) => {
@@ -14,5 +11,5 @@ export const getAllTickers = () => {
 };
 
 export const deleteTicker = (ticker: Ticker) => {
-  return axiosClient.delete('/ticker/${ticker.ticker}');
+  return axiosClient.delete(`/ticker/${ticker.ticker}`);
 };
